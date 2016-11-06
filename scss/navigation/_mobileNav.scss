@@ -1,0 +1,179 @@
+﻿@import "../base/variables";
+@import "../base/mixins";
+$circle-size: 50px;
+$circle-round: 50%;
+$transition: all 500ms ease;
+
+.nav-trigger {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: $circle-round;
+    background-color: $color-red;
+    color: $color-white;
+    text-align: center;
+    font-size: 22px;
+    position: absolute;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+        background-color: darken($color-red, 15%);
+    }
+
+    i {
+        position: absolute;
+        @include vertical-align;
+    }
+}
+
+
+
+.nav-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+    //margin-bottom: $circle-size*1.5;
+    a {
+        transition:$transition;
+        background-color: $color-red;
+        text-align: center;
+        display: block;
+        position: absolute;
+        width: 100/2*1%;
+        height: calc(#{100/3*1%} - #{$circle-size/3});
+        left: auto;
+        right: 0;
+        bottom: calc(#{(100%) - (100/3*1%)} + #{$circle-size/3});
+
+
+        &:nth-child(odd) {
+            left: 0;
+            right: auto;
+        }
+
+        &:nth-child(3), &:nth-child(4) {
+            bottom: calc(#{(100/3*1%)} + #{($circle-size/3)*2});
+        }
+
+        &:nth-child(5), &:nth-child(6) {
+            bottom: 0;
+            height: calc(#{100/3*1%} + #{($circle-size/3)*2});
+            bottom: 0;
+
+            .nav-item {
+                padding-bottom: $circle-size*1.5;
+            }
+        }
+
+
+        &:hover {
+            background-color: darken($color-red, 15%);
+        }
+    }
+}
+
+.nav-open .nav-container a {
+    bottom: 15px;
+    border-radius: $circle-round;
+    width: $circle-size;
+    height: $circle-size;
+    left: calc(50% - #{$circle-size/2});
+    right: calc(50% - #{$circle-size/2});
+    margin: 0 auto;
+
+    &:nth-child(5), &:nth-child(6) {
+        .nav-item {
+            padding-bottom: 0;
+        }
+    }
+
+
+    .nav-item {
+        font-size: 22px;
+    }
+}
+
+.nav-item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: $color-white;
+    font-size: 42px;
+
+    transition:$transition;
+
+    i {
+        @include vertical-align;
+    }
+}
+
+
+/*Flex-box*/
+
+
+/*.nav-trigger {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: $circle-round;
+    background-color: $color-red;
+    color: $color-white;
+    text-align: center;
+    font-size: 22px;
+    position: absolute;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+        background-color: darken($color-red, 15%);
+    }
+
+    i {
+        position: absolute;
+        @include vertical-align;
+    }
+}*/
+
+
+/*.nav-container {
+    background-color: $color-red;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    padding-bottom: $circle-size*1.5;
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        flex-basis: 50%;
+        text-align: center;
+        display: block;
+        position: relative;
+
+        &:hover {
+            background-color: darken($color-red, 15%);
+        }
+    }
+}
+
+.nav-item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: $color-white;
+    font-size: 42px;
+
+    i {
+        @include vertical-align;
+    }
+
+}*/

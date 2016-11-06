@@ -1,0 +1,23 @@
+﻿@import "../base/mixins";
+@import "../base/variables";
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    background-color:$color-white;
+    color:$color-black;
+}
+
+
+.mobile{
+    width:320px;
+    height:570px;
+    background-color:#e9da8b;
+    margin:50px auto 0;
+    position:relative;
+}
